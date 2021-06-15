@@ -33,17 +33,28 @@ const BlogForm = ({ createNewBlog }) => {
 	return (
 		<div>
 			<h2>create new</h2>
-			<form onSubmit={handleCreateNewBlog}>
+			<form id='blogForm' onSubmit={handleCreateNewBlog}>
 				<p>
-					title: <input type='text' value={title} onChange={handleSetTitle} />
+					title:{' '}
+					<input
+						id='title'
+						type='text'
+						value={title}
+						onChange={handleSetTitle}
+					/>
 				</p>
 				<p>
 					author:
-					<input type='text' value={author} onChange={handleSetAuthor} />
+					<input
+						id='author'
+						type='text'
+						value={author}
+						onChange={handleSetAuthor}
+					/>
 				</p>
 				<p>
 					url:
-					<input type='text' value={url} onChange={handleSetUrl} />
+					<input id='url' type='text' value={url} onChange={handleSetUrl} />
 				</p>
 				<input type='submit' value={'create'} />
 			</form>
@@ -51,8 +62,6 @@ const BlogForm = ({ createNewBlog }) => {
 	)
 }
 BlogForm.propTypes = {
-	user: Proptypes.object.isRequired,
-	handleLogout: Proptypes.func.isRequired,
 	createNewBlog: Proptypes.func.isRequired,
 }
 export default BlogForm

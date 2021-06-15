@@ -25,11 +25,17 @@ const LoginFom = ({ handleLogin }) => {
 
 			<form onSubmit={login}>
 				<div>
-					Email: <input type='text' value={username} onChange={handleUser} />
+					Email:{' '}
+					<input id='user' type='text' value={username} onChange={handleUser} />
 				</div>
 				<div>
 					Password:{' '}
-					<input type='password' value={password} onChange={handlePassword} />
+					<input
+						id='password'
+						type='password'
+						value={password}
+						onChange={handlePassword}
+					/>
 				</div>
 				<input type='submit' value={'login'} />
 			</form>
