@@ -37,7 +37,7 @@ const LoginFom = ({ handleLogin }) => {
 						onChange={handlePassword}
 					/>
 				</div>
-				<input type='submit' value={'login'} />
+				<input id='loginButton' type='submit' value={'login'} />
 			</form>
 		</div>
 	)
