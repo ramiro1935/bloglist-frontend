@@ -33,3 +33,24 @@ Cypress.Commands.add('login', ({ username, password }) => {
 		cy.visit('http://localhost:3000')
 	})
 })
+
+Cypress.Commands.add('createUser', ({ username, password, name }) => {
+	cy.request('POST', 'http://localhost:3003/api/users/', {
+		username,
+		password,
+		name,
+	})
+})
+
+Cypress.Commands.add('createBlog', ({ author, url, title }) => {
+	cy.request({
+		url: 'http://localhost:3003/api/blogs',
+		method: 'POST',
+		body: { author, url, title },
+		headers: {
+			Authorization: `bearer ${JSON.parse(localStorage.getItem('user')).token}`,
+		},
+	})
+
+	cy.visit('http://localhost:3000')
+})

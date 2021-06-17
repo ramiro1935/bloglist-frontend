@@ -5,11 +5,16 @@ export const BlogDetail = ({ blog, updateBlog, deleteBlog }) => {
 	return (
 		<div className='blogdetail'>
 			<p>{blog.url}</p>
-			<p>
-				{blog.likes} <button onClick={() => updateBlog(blog)}>like</button>
+			<p className='likes'>
+				{blog.likes}{' '}
+				<button className='likeButton' onClick={() => updateBlog(blog)}>
+					like
+				</button>
 			</p>
 			<p>{blog.author}</p>
-			<button onClick={() => deleteBlog(blog)}>remove</button>
+			<button className='removeButton' onClick={() => deleteBlog(blog)}>
+				remove
+			</button>
 		</div>
 	)
 }
@@ -41,7 +46,10 @@ const Blog = ({ blog, deleteBlog, updateBlog }) => {
 	return (
 		<div className='blog' style={blogStyle}>
 			{blog.title} {blog.author}
-			<button style={buttonToggle} onClick={handleToggleDetail}>
+			<button
+				className='togglebutton'
+				style={buttonToggle}
+				onClick={handleToggleDetail}>
 				{toggleDetail ? 'hide' : 'view'}
 			</button>
 			{toggleDetail && (
