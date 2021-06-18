@@ -20,14 +20,18 @@ const NotifyComponent = ({ notify }) => {
 
 const BlogList = ({ blogs, updateBlog, deleteBlog }) => {
 	const sorted = [...blogs].sort((a, b) => b.likes - a.likes)
-	return sorted.map(blog => (
-		<Blog
-			key={blog.id}
-			blog={blog}
-			updateBlog={updateBlog}
-			deleteBlog={deleteBlog}
-		/>
-	))
+	return (
+		<div id='blogList'>
+			{sorted.map(blog => (
+				<Blog
+					key={blog.id}
+					blog={blog}
+					updateBlog={updateBlog}
+					deleteBlog={deleteBlog}
+				/>
+			))}
+		</div>
+	)
 }
 
 const App = () => {

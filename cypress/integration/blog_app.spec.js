@@ -59,6 +59,27 @@ describe('Blog app', function () {
 				})
 			})
 
+			it('blogs are ordered desc', function () {
+				cy.get('.togglebutton:first').click()
+				cy.get('.likeButton:first').click()
+				cy.get('.likes:first').contains(1)
+
+				cy.get('.likeButton:first').click()
+				cy.get('.likes:first').contains(2)
+
+				cy.get('.likeButton:first').click()
+				cy.get('.likes:first').contains(3)
+
+				cy.get('#blogList')
+					.each(($blog, index, $blogs) => {
+						cy.wrap($blog).contains('view').click()
+					})
+					.then($blogs => {
+						cy.get('.likes:first').contains(3)
+						cy.get('.likes:last').contains(0)
+					})
+			})
+
 			it('a blog can be liked', function () {
 				cy.get('.togglebutton:first').click()
 				cy.get('.likeButton:first').click()
